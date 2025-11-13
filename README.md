@@ -1,7 +1,7 @@
 # Financial Risk Forecasting — Learning in Python
 
 This is my personal learning project based on Jon Danielsson’s book *Financial Risk Forecasting*.
-The book doesn’t come with exercises, so I decided to create my own small coding tasks while reading it — 
+The book doesn’t come with exercises, so I decided to create my own small coding tasks while reading it - 
 to understand the ideas better and get some hands-on practice with risk modeling in Python.
 
 ## 🧭 Goal
@@ -10,7 +10,7 @@ I’m using this project to:
 - write simple, clean Python code for each method,
 - and slowly build a small portfolio of quantitative finance work.
 
-I’m not trying to reproduce everything in the book — just exploring the main techniques and seeing how they work in practice.
+I’m not trying to reproduce everything in the book - just exploring the main techniques and seeing how they work in practice.
 
 ## 🧩 Topics I Plan to Cover
 - Returns and basic statistics  
@@ -40,15 +40,14 @@ pip install numpy pandas matplotlib scipy statsmodels
 ```
 financial-risk-forecasting/
 │
-├── data/                 # example or downloaded datasets
-├── notebooks/            # Jupyter notebooks per topic
+├── notebooks/            # Jupyter notebooks per chapter
 ├── src/                  # small helper functions
 └── README.md
 ```
 
 ## 🧮 Example
 ```python
-from src.volatility import ewma_volatility
+from src.utils import ewma_volatility
 import pandas as pd
 
 returns = pd.Series([...])  # daily returns
