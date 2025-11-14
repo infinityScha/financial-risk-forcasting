@@ -26,14 +26,14 @@ I’m not trying to reproduce everything in the book - just exploring the main t
 I’m using Python and conda for environment management.
 
 ```bash
-conda create -n risk python=3.11 numpy pandas matplotlib scipy statsmodels
+conda create -n risk python=3.11 numpy pandas matplotlib scipy statsmodels yfinance
 conda activate risk
 ```
 
 or with pip:
 
 ```bash
-pip install numpy pandas matplotlib scipy statsmodels
+pip install numpy pandas matplotlib scipy statsmodels yfinance
 ```
 
 ## 📁 Structure
