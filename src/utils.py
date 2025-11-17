@@ -12,8 +12,7 @@ def get_snp_500_values_per_company(period):
         period (str): The period over which to fetch the stock data (e.g., '1mo', '3mo', '1y').
 
     Returns:
-        dict: A dictionary with company tickers as keys and their values as values.
-              If a ticker has insufficient data, its value will be None.
+        pd.DataFrame: A DataFrame of adjusted close prices for S&P 500 companies over the specified period.
     """
     # 1) Fetch the S&P 500 tickers from Wikipedia (common, reasonably stable source)
     try:
@@ -50,7 +49,9 @@ def get_snp_500_values(period):
     Returns:
         pd.Series: A series of adjusted close prices for the S&P 500 index over the specified period.
     """
-    return yf.download("^GSPC", period=period, progress=False)['Adj Close']
+    snp500prices = yf.download("^GSPC", period=period, progress=False, auto_adjust=False)['Adj Close']
+    
+    return snp500prices
 
 
 def simple_returns(prices):
@@ -72,7 +73,8 @@ def continuously_compound_returns(prices):
     Returns:
         pd.Series or pd.DataFrame: Compound returns.
     """
-    return prices.apply(lambda x: np.log(x / x.shift(1))).dropna()
+    log_prices = prices.apply(lambda x: np.log(x))
+    return log_prices.diff().dropna()
 
 
 def compound_simple_returns_over_period(returns):

@@ -47,8 +47,12 @@ financial-risk-forecasting/
 
 ## 🧮 Example
 ```python
-from src.utils import ewma_volatility
 import pandas as pd
+
+import sys
+import os
+sys.path.append(os.path.abspath("../"))
+from src.utils import ewma_volatility
 
 returns = pd.Series([...])  # daily returns
 vol = ewma_volatility(returns, lambda_=0.94)
